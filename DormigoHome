@@ -1,4 +1,3 @@
-
 <html>
 	<head>
 		<title>Dormigo</title>
@@ -12,6 +11,39 @@
 			}
 		</script>
 		<style type="text/css">
+		
+		body
+		{
+			background-color: #F2F2F2
+		}
+		@font-face {
+   		font-family: myFirstFont;
+   		src: url('C:\Users\Stella Sotos\Desktop\GatsbyFLF.ttf');				
+}	
+		div.p1
+		{
+		background-color: #006666;	
+		border: 10px solid #006666;
+		 font-family: "Verdana", Times, sans-serif;
+
+
+		}
+		div.p2
+		{
+		background-color: white;	
+		border: 1px solid white;
+		 font-family: "Verdana", Times, sans-serif;
+		  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  max-width: 277px;
+  height: 320px;
+
+  	border: 1px solid #B8CCB8;
+
+
+		}
+		
 			p 
 			{
 				text-align: center;
@@ -33,15 +65,18 @@
 		</style>
 	</head>
 <body>
-	<p><font size = "25" color="blue" style="font-family:verdana">Welcome to Dormigo!</font></p>
+	<div class = "p1">
+	<p><font size = "25" color="#EAE9ED">Dormigo</font></p></div>
 
+<div class = "p2" >
+	<img src="https://scontent-iad.xx.fbcdn.net/hphotos-xta1/v/t34.0-12/11261092_1425856567734968_1060903506_n.jpg?oh=4ec1e0c0cd9370c8971730c1e8fb4422&oe=5559E8AA" style="width:150px;height:200px">
 <p><input  id="UserName" placeholder="Username"> </p>
 <p><input  id="PassWord" placeholder="Password"> </p>
 	<script type="text/javascript">
 document.getElementById('UserName').focus()
 </script>
     <button type="button" onClick = "Submit()">Login</button>
+</div>
 
 </body>
 </html>
-
