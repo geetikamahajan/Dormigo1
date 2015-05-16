@@ -1,0 +1,91 @@
+
+<html>
+	<head>
+		<title>Dormigo New User</title>
+		<script type = "text/javascript">
+		var school = "";
+		var name = "";
+		var sex = "";
+		var dorm = "";		
+		
+			function hit(value v)
+			{
+				school = v; 
+			}
+			function name()
+			{
+				name = document.getElementById("Name").value;
+
+			}
+			function list()
+			{
+			
+			if(document.getElementById("m").checked)
+				{
+					sex = "M";
+				}
+			else
+				{
+					sex = "F";
+				}
+
+			}
+
+		</script>
+		<style type="text/css">
+			p 
+			{
+				text-align: center;
+			}
+			img {
+    			display: block;
+    			margin: 0 auto;
+				}
+			input
+			{
+				 display: block;
+    			 margin: 0 auto;
+    			 				text-align: center;
+
+			}
+			button
+			{
+				 display: block;
+   				 margin: 0 auto;
+			}
+			input[type="radio"] {
+				  margin-top: -1px;
+				  vertical-align: middle;
+				  text-align:center;
+				}
+		</style>
+	</head>
+<body>
+	<p><font size = "25" color="blue" style="font-family:verdana">Create New User</font></p>
+
+
+	<p><font size = "18" color="black" style="font-family:verdana">General Info</font></p>
+
+<p>Name <input  id="Name" placeholder="Enter Name" onEnter = "name()"> </p>
+<p>School <select id = "mySelect" onClick = "hit(value)">
+		<option value = "PENN"> University of Pennsylvainia </option>
+		<option value = "UVA"> UVA </option>
+		<option value = "VT"> Virginia Tech </option>
+		<option value = "VCU"> VCU </option>
+	</select>
+</p>
+<p>Sex 
+<div id = "form">
+		<input type = "radio" name = "dl" id = "m" style="vertical-align: middle" value = "M">Male</input>
+		<input type = "radio" name = "dl" id = "f" style="vertical-align: middle" value = "F">Female</input>
+</div>
+ </p>
+<p>Dorm Preference <input  id="School" placeholder="Enter Dorm"> </p>
+	<script type="text/javascript">
+document.getElementById('UserName').focus()
+</script>
+    <button type="button" onClick = "Submit()">Login</button>
+
+</body>
+</html>
+
