@@ -1,0 +1,66 @@
+<html>
+<header> <title> What are the Properties? </title> </header>
+<h1> <center> <font color="white">  What are the Properties? </font> </center> </h1>
+<body background="gradientbg.png" onLoad="pageLoaded();">
+<h3> <font color="white"> Select a Menu Type: </font> </h3>
+<div id = "MenuSelect">
+<input type = "radio" name = "menuType" value="DropDown" onClick="choseDD()"> Dropdown Menu<br>
+<input type = "radio" name = "menuType" value ="ListBox" onClick="choseLB()"> Listbox Menu<br>
+</div>
+<h3 id="selectameal" style="display:none"> <font color="white"> Select a Meal </font> </h3>
+<div id = "menu" style="display:none">
+<select id = "menuOptions" onChange="onSelection()">
+	<option> Healthy Meal </option>
+	<option> Fatty Meal </option>
+	<option> Post-Workout Meal </option>
+	<option> Just Fries and Drank Meal </option>
+	<option> Nothing Else To Eat Meal </option>
+	<option> Break-Up Meal </option>
+	<option> Kosher Meal </option>
+	<option> Thanksgiving Meal </option>
+</select>
+</div>
+<br> <br>
+<h3 id = "whatsinthemeal" style="display:none"> <font color="white"> What is in the Meal: </font> </h3>
+<form name="PLform">
+<div id = "divPL" style="display:none">
+<select id = "propertyList" size = "4">
+	<option value="1"> </option>
+</select>
+</div>
+</form>
+<script type="text/javascript">
+	function pageLoaded(){
+		alert("compiled");
+	}
+	function choseDD(){
+		document.getElementById('menu').style.display = 'block';
+		document.getElementById('selectameal').style.display = 'block';
+		document.getElementById('menuOptions').size = 1;
+	}
+	function choseLB(){
+		document.getElementById('menu').style.display = 'block';
+		document.getElementById('selectameal').style.display = 'block';
+		document.getElementById('menuOptions').size = 8;
+	}
+	var properties = {"Healthy Meal": ["Water", "Yogurt", "Banana", "House Salad", "Carrots"], "Fatty Meal": ["32 oz. Soft Drink", "French Fries", "Deep Dish Pizza Bagel", "Bacon", "Double Cheeseburger", "Chocolate Cupcake"], "Post-Workout Meal": ["Water", "Grilled Chicken Breast", "Mixed Vegetables", "Avocado", "Sweet Potato", "Granola"], "Just Fries and Drank Meal": ["16 oz. Soft Drink", "Sweet Potato Fries", "French Fries", "Shoestring Fries"], "Nothing Else To Eat Meal": ["16 oz. Milkshake", "Burger", "Fries"], "Break-Up Meal": ["32 oz. Milkshake", "Bacon", "Macaroni and Cheese", "Onion Rings", "Fudge Ice Cream"], "Kosher Meal": ["Water", "Turkey Burger", "Matzo and Chocolate", "Carrot Pudding"], "Thanksgiving Meal": ["16 oz. Soft Drink", "Turkey in Gravy", "Stuffing", "Garlic Beans", "Cornbread", "Cranberry Pudding"]};
+	function onSelection(){
+		var selected = document.getElementById('menuOptions');
+		document.getElementById('whatsinthemeal').style.display = 'block';
+		var item = selected.options[selected.selectedIndex].text;
+		hasChosen(item);
+	}
+	function hasChosen(item){
+		var propertiesOfMeal = properties[item];
+		var numOfProps = propertiesOfMeal.length;
+		document.getElementById('divPL').style.display = 'block';
+		var num = 0;
+		document.PLform.propertyList.options.length=0;
+		for(i = 0; i < numOfProps; i++){
+			num = i+1;
+			document.PLform.propertyList.options[i]=new Option(propertiesOfMeal[i], num.toString());
+		}
+	}
+</script>
+</body>
+</html>
