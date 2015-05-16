@@ -1,0 +1,47 @@
+
+<html>
+	<head>
+		<title>Dormigo</title>
+		<script type = "text/javascript">
+		var username = "";
+		var password = "";		
+		
+			function submit()
+			{
+				
+			}
+		</script>
+		<style type="text/css">
+			p 
+			{
+				text-align: center;
+			}
+			img {
+    			display: block;
+    			margin: 0 auto;
+}
+			input
+			{
+				 display: block;
+    			 margin: 0 auto;
+			}
+			button
+			{
+				 display: block;
+   				 margin: 0 auto;
+			}
+		</style>
+	</head>
+<body>
+	<p><font size = "25" color="blue" style="font-family:verdana">Welcome to Dormigo!</font></p>
+
+<p><input  id="UserName" placeholder="Username"> </p>
+<p><input  id="PassWord" placeholder="Password"> </p>
+	<script type="text/javascript">
+document.getElementById('UserName').focus()
+</script>
+    <button type="button" onClick = "Submit()">Login</button>
+
+</body>
+</html>
+
