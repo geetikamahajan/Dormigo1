@@ -28,6 +28,7 @@
 	<option value="1"> </option>
 </select>
 </div>
+<button>STELLA</button>
 </form>
 <script type="text/javascript">
 	function pageLoaded(){
