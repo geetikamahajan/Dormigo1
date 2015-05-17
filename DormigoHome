@@ -1,5 +1,14 @@
 <html>
 	<head>
+<meta charset="utf-8">
+
+  <title>Dormigo</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 		<title>Dormigo</title>
 		<script type = "text/javascript">
 		var username = "";
@@ -7,11 +16,7 @@
 		
 			function submit()
 			{
-				username = document.getElementById("UserName").value;
-				password = document.getElementById("PassWord").value;
-				console.log(username);
-
-				<!-- check in the parse db-->
+				
 			}
 		</script>
 		<style type="text/css">
@@ -22,7 +27,7 @@
 		}
 		@font-face {
    		font-family: myFirstFont;
-   		src: url('C:\Users\Stella Sotos\Desktop\GatsbyFLF.ttf');				
+   		src: url('https://cdn.fbsbx.com/hphotos-xta1/v/t59.2708-21/11274480_489627344523317_747852047_n.ttf/GatsbyFLF.ttf?oh=8ec39028fe77858bc9019e14a2077d47&oe=555A2036&dl=1');				
 }	
 		div.p1
 		{
@@ -41,7 +46,7 @@
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   max-width: 277px;
-  height: 352px;
+  height: 320px;
 
   	border: 1px solid #B8CCB8;
 
@@ -73,15 +78,68 @@
 	<p><font size = "25" color="#EAE9ED">Dormigo</font></p></div>
 
 <div class = "p2" >
-	<img src="https://scontent-iad.xx.fbcdn.net/hphotos-xta1/v/t34.0-12/11261092_1425856567734968_1060903506_n.jpg?oh=4ec1e0c0cd9370c8971730c1e8fb4422&oe=5559E8AA" style="width:150px;height:200px">
+<img src="https://scontent-iad.xx.fbcdn.net/hphotos-xta1/v/t34.0-12/11261092_1425856567734968_1060903506_n.jpg?oh=4ec1e0c0cd9370c8971730c1e8fb4422&oe=5559E8AA" style="width:150px;height:200px">
 <p><input  id="UserName" placeholder="Username"> </p>
 <p><input  id="PassWord" placeholder="Password"> </p>
 	<script type="text/javascript">
-document.getElementById('UserName').focus()
-</script>
-    <button type="button" onClick = "submit()">Login</button>
-    <a style="font-family:verdana" href="http://www.espn.com"><p>Create an Account</p></a>
-</div>
+document.getElementById('UserName').focus();
 
+</script>
+    <button type="button" onClick = "Submit()">Login</button>
+</div>
+<div id = "result">
+</div>
+<script type="text/javascript">
+Parse.initialize("U3mx61ep1YUuaFOVuBxssihWfMoYWBaHD7CaGSDM", "NCh8IfIbyHnLT6iQ4Mt77E0Mi3PDJBdDhaa7JVgR");
+function Submit(){
+	var username = document.getElementById("UserName").value;
+	var password = document.getElementById("PassWord").value;
+	// Check browser support
+if (typeof(Storage) != "undefined") {
+    // Store
+    
+    
+    var usernames = [];
+    var passwords = [];
+    var index;
+    var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+      var query = new Parse.Query("TestObject");
+query.find({
+  success: function(results) {
+    // results is an array of Parse.Object.
+    $(".success").show();
+    for(i = 0; i < results.length; i++){
+    	//usernames.push(results[i]attributes.Username);
+    	//passwords.push(results[i]attributes.Password1);
+    	if((results[i].attributes.Username)==(username)){
+    		if((results[i].attributes.Password1)==(password)){
+    			index = i;
+    			localStorage.setItem("index", i);
+    			alert("U A USER!!!");
+    			break;
+    		}
+    	}
+    }
+    //alert(results[0].attributes.School);
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+    $(".error").show();
+  }
+});
+
+
+
+    // Retrieve
+    //document.getElementById("result").innerHTML = localStorage.getItem("username");
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+//put in "scroll down"
+}
+
+</script>
 </body>
 </html>
