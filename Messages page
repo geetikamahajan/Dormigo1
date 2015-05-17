@@ -1,0 +1,20 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dormigo</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+</head>
+<style type = "text/css">
+		body
+		{
+			background-image: url("https://scontent-iad.xx.fbcdn.net/hphotos-xpt1/v/t35.0-12/11263893_489720894513962_724582599_o.jpg?oh=dd7e7de4741ae3690b61ef6aaa5e8245&oe=555A066D");
+		}
+</style>
+<body>
+</body>
+</html>
