@@ -92,7 +92,24 @@ Gender:
       }
     });
     }
+    function fetchData(){
+      var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+      var query = new Parse.Query("TestObject");
+query.find({
+  success: function(results) {
+    // results is an array of Parse.Object.
+    $(".success").show();
+    alert(results[0].attributes.School);
+  },
 
+  error: function(error) {
+    // error is an instance of Parse.Error.
+    $(".error").show();
+  }
+});
+  
+    }
     </script>
 </body>
 
