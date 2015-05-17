@@ -115,7 +115,8 @@ query.find({
     	if((results[i].attributes.Username)==(username)){
     		if((results[i].attributes.Password1)==(password)){
     			index = i;
-    			localStorage.setItem("index", i);
+    			localStorage.setItem("username", username);
+    			console.log(results[i]);
     			alert("U A USER!!!");
     			break;
     		}
