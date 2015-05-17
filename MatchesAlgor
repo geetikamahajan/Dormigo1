@@ -1,0 +1,85 @@
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Dormigo</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  </head>
+  <body>
+  	<script type="text/javascript">
+  	var username = localStorage.getItem("username");
+  	var school;
+  	var gender;
+  	var shower;
+  	var priorities;
+  	var politics;
+  	var neatness;
+  	var sleeping;
+  	var religion;
+  	var allAccts= {};
+  	var res = [];
+  	var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+      var query = new Parse.Query("TestObject");
+     var x = false;
+query.find({
+  success: function(results) {
+    // results is an array of Parse.Object.
+    $(".success").show();
+    for(i = 0; i < results.length; i++){
+    	res.push(results[i])
+    	allAccts.push({key: res[i],value: [true,0,0]})
+    	if((results[i].attributes.Username)==(username) && x = false){
+    			index = i;
+    			x = true;
+    	}
+    }
+
+    school = results[index].attributes.School;
+    gender = results[index].attributes.Gender;
+  	shower = results[index].attributes.Showering;
+  	religion = results[index].attributes.Religion;
+  	neatness = results[index].attributes.Neatness;
+  	sleeping = results[index].attributes.Sleeping;
+  	politics = results[index].attributes.Politics;
+  	priorities = results[index].attributes.Priorities;
+  	alert(priorities);
+    //alert(results[0].attributes.School);
+  },
+
+  error: function(error) {
+    // error is an instance of Parse.Error.
+    $(".error").show();
+  }
+});
+for(i = 0; i < res.length; i++){
+	if(res[i].attributes.School !== school)
+		(allAccts.(res[i]))[0] == false;
+	if(res[i].attributes.Gender !== gender)
+		(allAccts.(res[i]))[0] = false;
+	if(shower === res[i].attributes.Showering)
+		(allAccts.(res[i]))[1] +=1;
+  	if(religion === res[i].attributes.Religion)
+  		(allAccts.(res[i]))[1] +=1;
+  	if(neatness === res[i].attributes.Neatness)
+  		(allAccts.(res[i]))[1] +=1;
+  	if(sleeping === res[i].attributes.Sleeping)
+  		(allAccts.(res[i]))[1] +=1;
+  	if(politics === res[i].attributes.Politics)
+  		(allAccts.(res[i]))[1] +=1;
+  	if(priorities === res[i].attributes.Priorities)
+  		(allAccts.(res[i]))[1] +=1;
+  	(allAccts.(res[i]))[2] = round(((allAccts.(res[i]))[2])/6)*100;
+} 
+
+//alert((allAccts.(res[0]))[2]);
+
+
+  	</script>
+  </body>
+</html>
