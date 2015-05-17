@@ -1,0 +1,195 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Dormigo</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  <style type = "text/css">
+  div.p1
+    {
+    background-color: #006666;  
+    border: 10px solid #006666;
+     font-family: "Verdana", Times, sans-serif;
+     text-align: center;
+
+
+    }
+    div.p2
+    {
+      background-color: white;  
+      border: 1px solid white;
+      font-family: "Verdana", Times, sans-serif;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      padding-left: 20px;
+      max-width: 700px;
+      height: 330px;
+
+    border: 1px solid #B8CCB8;
+    
+    }
+    div.pt3
+    {
+      text-align: center;
+    }
+
+
+    </style>
+
+</head>
+
+<body>
+
+  <div class = "p1">
+  <p><font size = "25" color="#EAE9ED">Dormigo</font></p></div>
+   <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="66.6" aria-valuemin="0" aria-valuemax="100" style="width:66.6%">
+        <span class="sr-only">70% Complete</span>
+      </div>
+      </div>
+  <div class = "p2">
+     
+
+    <div class = "pt3">
+     
+
+<table style="width:100%">
+  <tr>
+    <td><b>HYGIENE<b></td>
+    <td><b>HABITS<b></td>    
+    <td><b>BELIEFS<b></td>
+  </tr>
+
+  <tr>
+    <td> <br>Showering Preferences:
+    	<form>
+<input type="radio" name="shower" value="1" checked><i>Once a day<i>
+<br>
+<input type="radio" name="shower" value="2"><i>At least every other day<i>
+<br>
+<input type = "radio" name="shower" value="3"><i>Once a week
+<i>
+</form> </td>
+
+    <td>Priorities:
+    	<form>
+<input type="radio" name="priorities" value="1" checked><i>Studies are the most important<i>
+<br>
+<input type="radio" name="priorities" value="2"><i>I want to study and party<i>
+<br>
+<input type = "radio" name"priorities" value="3"><i>I'm in it for the parties!<i></td>    
+    <td>Politics: <br>
+    	<form>
+<input type="radio" name="politics" value="1" checked><i>Democrat<i>
+<br>
+<input type="radio" name="politics" value="2"><i>Republican<i>
+<br>
+<input type = "radio" name="politics" value="3"><i>Don't Care<i></td>
+  </tr>
+
+  <tr>
+    <td><br>Room Neatness: <br>
+    	<form>
+<input type="radio" name="neat" value="1" checked><i>Extremely Important<i>
+<br>
+<input type="radio" name="neat" value="2"><i>Decently Important<i>
+<br>
+<input type = "radio" name="neat" value="3"><i>Not Important<i></td>
+    <td><br>Sleeping Habits: <br>
+    	<form>
+<input type="radio" name="sleep" value="1" checked><i>Night Owl<i>
+<br>
+<input type="radio" name="sleep" value="2"><i>Early Bird<i>
+<br>
+<input type = "radio" name="sleep" value="3"><i>Normal Person<i></td>
+  </td> 
+
+    <td><br>Religion: <br>
+    	<form>
+<input type="radio" name="relg" value="1" checked><i>Very Religious<i>
+<br>
+<input type="radio" name="relg" value="2"><i>Slightly Religious<i>
+<br>
+<input type = "radio" name="relg" value="3"><i>Not Religious<i></td>
+  </td>
+
+</table>
+
+<br>
+<div class = "pt3">
+<button onClick = "getNameText()">Submit</button>
+<button onClick = "fetchData()"> See </button> </div>
+</div>
+
+
+  <script type="text/javascript">
+    Parse.initialize("U3mx61ep1YUuaFOVuBxssihWfMoYWBaHD7CaGSDM", "NCh8IfIbyHnLT6iQ4Mt77E0Mi3PDJBdDhaa7JVgR");
+    var name;
+    function getNameText(){
+      name = document.getElementById("name").value;
+      var uname = name = document.getElementById("Uname").value;
+      var pw = document.getElementById("PW").value;
+      var schools = document.getElementById('schoolOptions');
+    var school = schools.options[schools.selectedIndex].text;
+    var gender = document.getElementById('gender');
+    var gend = gender.options[gender.selectedIndex].text;
+      var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+      testObject.save({TheName: name}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({School: school}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({Gender: gend}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({Username: uname}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({Password1: pw}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+    }
+
+    </script>
+</body>
+
+</html>
