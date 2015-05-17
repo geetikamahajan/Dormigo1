@@ -1,0 +1,158 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Dormigo</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  <style type = "text/css">
+  div.p1
+		{
+		background-color: #006666;	
+		border: 10px solid #006666;
+		 font-family: "Verdana", Times, sans-serif;
+		 text-align: center;
+
+
+		}
+		div.p2
+		{
+		background-color: white;	
+		border: 1px solid white;
+		 font-family: "Verdana", Times, sans-serif;
+		  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+   padding-left: 20px;
+  max-width: 300px;
+  height: 530px;
+
+  	border: 1px solid #B8CCB8;
+  	
+		}
+		div.pt3
+		{
+			text-align: center;
+		}
+		</style>
+
+</head>
+
+<body>
+	<div class = "p1">
+	<p><font size = "25" color="#EAE9ED">Dormigo</font></p></div>
+	<div class = "p2">
+
+		<div class = "pt3">
+			<input type="file" onchange="previewFile()"><br>
+			<img class = "hi" src="" height="200" alt="Image preview...">
+		</div>
+
+Username: <input type="text" id="Uname" style="width:90%"></input> <br> <br>
+Password: <input type="text" id="PW"style="width:90%"></input> <br> <br>
+Name: <input type="text" id="name"style="width:90%"></input> <br> <br>
+School: <div id = "menu">
+<select id = "schoolOptions" > <!-- onChanfge -->
+  <option> VCU </option>
+  <option> Virginia Tech </option>
+  <option> University of Michigan </option>
+  <option> UPenn </option>
+</select>
+</div>
+<br>
+Gender: 
+<div id = "gend">
+<select id = "gender" > <!-- onChanfge -->
+  <option> Male </option>
+  <option> Female </option>
+  <option> Other </option>
+
+</select>
+</div>
+
+<br>
+<div class = "pt3">
+<button onClick = "getNameText()">Submit</button>
+<button onClick = "fetchData()"> See </button> </div>
+</div>
+
+
+  <script type="text/javascript">
+    Parse.initialize("U3mx61ep1YUuaFOVuBxssihWfMoYWBaHD7CaGSDM", "NCh8IfIbyHnLT6iQ4Mt77E0Mi3PDJBdDhaa7JVgR");
+    var name;
+    function getNameText(){
+      name = document.getElementById("name").value;
+      var uname = document.getElementById("Uname").value;
+      var pw = document.getElementById("PW").value;
+      var schools = document.getElementById('schoolOptions');
+    var school = schools.options[schools.selectedIndex].text;
+    var gender = document.getElementById('gender');
+    var gend = gender.options[gender.selectedIndex].text;
+      var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+      testObject.save({TheName: name}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({School: school}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({Gender: gend}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({Username: uname}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+      testObject.save({Password1: pw}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+    }
+    	function previewFile();
+    	{
+
+    	var preview = document.querySelector('img.hi'); //selects the query named img
+        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
+
+       if (file) {
+           reader.readAsDataURL(file); //reads the data as a URL
+       } else {
+           preview.src = "";
+       }
+    	}
+    </script>
+</body>
+
+</html>
