@@ -7,7 +7,11 @@
 		
 			function submit()
 			{
-				
+				username = document.getElementById("UserName").value;
+				password = document.getElementById("PassWord").value;
+				console.log(username);
+
+				<!-- check in the parse db-->
 			}
 		</script>
 		<style type="text/css">
@@ -37,7 +41,7 @@
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   max-width: 277px;
-  height: 320px;
+  height: 352px;
 
   	border: 1px solid #B8CCB8;
 
@@ -75,7 +79,8 @@
 	<script type="text/javascript">
 document.getElementById('UserName').focus()
 </script>
-    <button type="button" onClick = "Submit()">Login</button>
+    <button type="button" onClick = "submit()">Login</button>
+    <a style="font-family:verdana" href="http://www.espn.com"><p>Create an Account</p></a>
 </div>
 
 </body>
