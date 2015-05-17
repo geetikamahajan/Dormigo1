@@ -64,39 +64,25 @@
 
     <div class = "pt3">
      
-<div style = "text-align:center">
-  <div style="float:left">
-    School: <div id = "menu">
-    <select id = "schoolOptions" > <!-- onChanfge -->
-      <option> VCU </option>
-      <option> Virginia Tech </option>
-      <option> University of Michigan </option>
-      <option> UPenn </option>
-    </select>
-    </div>
-  </div>
-  <br>
-  <div style="float:center">
-    School: <div id = "menu">
-    <select id = "schoolOptions" > <!-- onChanfge -->
-      <option> VCU </option>
-      <option> Virginia Tech </option>
-      <option> University of Michigan </option>
-      <option> UPenn </option>
-    </select>
-    </div>
-  </div>
-  <div style="float:right">
-    School: <div id = "menu">
-    <select id = "schoolOptions" > <!-- onChanfge -->
-      <option> VCU </option>
-      <option> Virginia Tech </option>
-      <option> University of Michigan </option>
-      <option> UPenn </option>
-    </select>
-    </div>
-  </div>
-</div>
+
+<table style="width:100%">
+  <tr>
+    <td>HYGIENE</td>
+    <td>HABITS</td>    
+    <td>HOBBIES</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>    
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>    
+    <td>80</td>
+  </tr>
+</table>
+
 <br>
 <div class = "pt3">
 <button onClick = "getNameText()">Submit</button>
