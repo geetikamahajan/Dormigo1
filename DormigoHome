@@ -80,17 +80,21 @@
 <div class = "p2" >
 <img src="https://scontent-iad.xx.fbcdn.net/hphotos-xta1/v/t34.0-12/11261092_1425856567734968_1060903506_n.jpg?oh=4ec1e0c0cd9370c8971730c1e8fb4422&oe=5559E8AA" style="width:150px;height:200px">
 <p><input  id="UserName" placeholder="Username"> </p>
-<p><input  id="PassWord" placeholder="Password"> </p>
+<p><input  type = "password" id="PassWord" placeholder="Password"> </p>
 	<script type="text/javascript">
 document.getElementById('UserName').focus();
 
 </script>
     <button type="button" onClick = "Submit()">Login</button>
+    <button type="button" onClick= "newUs()">Create New User</button>
 </div>
 <div id = "result">
 </div>
 <script type="text/javascript">
 Parse.initialize("U3mx61ep1YUuaFOVuBxssihWfMoYWBaHD7CaGSDM", "NCh8IfIbyHnLT6iQ4Mt77E0Mi3PDJBdDhaa7JVgR");
+function newUs(){
+
+}
 function Submit(){
 	var username = document.getElementById("UserName").value;
 	var password = document.getElementById("PassWord").value;
