@@ -48,12 +48,13 @@
 	<div class = "p2">
 
 		<div class = "pt3">
-			<input type="file" onchange="previewFile()"><br>
-			<img class = "hi" src="" height="200" alt="Image preview...">
+			<img id = "hi" src="" height="200" alt="Image preview">
+			<input id = "uploadImage" type="file" onchange="previewFile();"><br>
+			
 		</div>
 
 Username: <input type="text" id="Uname" style="width:90%"></input> <br> <br>
-Password: <input type="text" id="PW"style="width:90%"></input> <br> <br>
+Password: <input type="password" id="PW"style="width:90%"></input> <br> <br>
 Name: <input type="text" id="name"style="width:90%"></input> <br> <br>
 School: <div id = "menu">
 <select id = "schoolOptions" > <!-- onChanfge -->
@@ -135,23 +136,15 @@ Gender:
       }
     });
     }
-    	function previewFile();
-    	{
-
-    	var preview = document.querySelector('img.hi'); //selects the query named img
-        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+    	function previewFile(){
         var reader  = new FileReader();
 
-       reader.onloadend = function () {
-           preview.src = reader.result;
-       }
-
-       if (file) {
-           reader.readAsDataURL(file); //reads the data as a URL
-       } else {
-           preview.src = "";
-       }
-    	}
+       reader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+       reader.onload = function (oFREvent) {
+           document.getElementById("hi").src = oFREvent.target.result;
+       };
+   };
+    	
     </script>
 </body>
 
